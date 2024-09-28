@@ -1,0 +1,178 @@
+
+
+
+#LogInPage{
+    padding-top: .5rem;
+    padding-bottom: 4.7rem;
+    background-image: linear-gradient(to bottom, #0b1550, #014981);
+    background-size: cover;
+    background-position: center
+}
+
+#OTP{
+    padding-top: .5rem;
+    padding-bottom: 3.7rem;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #0b1550, #014981);
+    background-size: cover;
+    background-position: center
+}
+
+#NewPassword{
+    padding-top: .5rem;
+    padding-bottom: 3.7rem;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #0b1550, #014981);
+    background-size: cover;
+    background-position: center
+}
+
+#error{
+    height: 100vh;
+    background-color: white;
+    color: #333333 !important;
+    background-size: cover;
+    background-position: center;
+}
+
+#lol{
+    padding: 4rem;
+}
+
+#error h1{
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#uhoh{
+    font-size: 1rem;
+    color: #0071bd;
+    text-decoration: none;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#uhoh:hover {
+    background-color: transparent;
+    font-size: 1.01rem;
+    text-decoration: underline;
+    color: #014981;
+}
+
+
+#fab{
+    position: relative;
+    width: 30% !important;
+    height: 0 !important;
+    left: 56.25rem;
+    top: 12.5rem;
+}
+
+
+#fab h1{
+    font-size: 4rem !important;
+    line-height: 5.5rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+
+.grabber{
+    position: absolute;
+    margin-right: 54rem;
+    max-width: 33rem;
+    background-color: white !important;
+    width: 100%;
+    padding: 1.5rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    border-radius: 0rem !important;  
+}
+.logo{
+    display: flex; /* or use display: grid; */
+    justify-content: center; /* horizontally center */
+    align-items: center;
+    width: 30rem;
+    height: 3rem;
+}
+
+.logo img{
+    height: 2rem;
+    width: 2rem;
+}
+
+#SignUpPage label, #SignUpPage form, #SignUpPage input{
+    color: #333333 !important;
+    border-color: gray;
+}
+
+#SignUpPage p{
+    padding-top: 1rem;
+    color: #333333 !important;
+    font-size: .8rem;
+}
+
+.welcome{
+    font-size: 2.4rem;
+    margin-bottom: 0;
+}
+
+#SignUpPage input:hover{
+    border-color: #333333;
+}
+
+.wrapper{
+    position: absolute;
+    margin-left: 54rem;
+    max-width: 28rem;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 1.875rem !important;
+    box-shadow: 0 0.313rem 0.625rem rgba(0,0,0,0.2);
+}
+
+#LogInPage input:hover{
+    border-color: white;
+    color: white;
+}
+
+#LogInPage ::placeholder{
+    color: #c2ccda !important;
+}
+
+#SignUpPage ::placeholder{
+    color: #747474 !important;
+}
+
+.cum button{
+   border-radius: 6.25rem;
+   border-color: #084d6e;
+   background-color: #084d6e;
+}
+
+.cum button:hover{
+    box-shadow: 0 0.313rem 0.625rem rgba(0,0,0,0.2);
+    border-color: #0071bd;
+    background-color: #0071bd;
+ } 
+
+.card-body label{
+padding-left: 1rem;
+}
+
+.card-body input{
+    border-radius: 6.25rem;
+    /* background-color: aliceblue; */
+}
+
+#da-link{
+    font-size: small !important;
+    text-align: right;
+    left: 14rem;
+    width: 6.7rem;
+}
+

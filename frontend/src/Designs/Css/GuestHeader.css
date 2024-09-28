@@ -1,0 +1,123 @@
+#bodhi {
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(.313rem);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    color: #232323;
+    z-index: 1000;
+  }
+
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 500;
+  }
+
+#search {
+  background-color: white;
+  border-radius: 3rem;
+  margin-top: 0.7rem;
+  height: 3rem;
+  width: 80%;
+  max-width: 25rem; 
+  transition: box-shadow 0.3s ease;
+  border: #232323 solid 1px !important;
+}
+
+#search:hover,
+#search:focus {
+  box-shadow: 0 0.2rem .8rem rgba(0, 0, 0, 0.5); 
+}
+
+.input-group-text {
+  border: none !important;
+  background: none;
+  cursor: pointer; 
+  padding: 0 !important;
+  margin-left: 0.5rem;
+}
+
+#location{
+  font-size: 1.8rem;
+  color: #ff2b91;
+  transition: transform 0.2s ease-in-out; 
+}
+
+#location:hover{
+  transform: scale(1.05); 
+}
+
+#location:active{
+  transform: scale(1); 
+}
+
+.form-control { 
+  border: 0px !important;
+  background: none;
+  max-width: 23rem;
+  margin-right: 2.5rem;
+}
+
+.form-control:focus { 
+  border: 0px !important; 
+  max-width: 23rem;
+  background: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#Kirb {
+  width: 5rem;
+  height: auto;
+  position: absolute; 
+  left: -3.3rem;
+  top: -0.5rem; 
+  z-index: 1;
+  transition: transform 0.2s ease-in-out; 
+}
+
+#Kirb:hover {
+  transform: scale(1.05); 
+}
+
+#Kirb:active {
+  transform: scale(1); 
+}
+
+.kirb-search {
+  position: relative;
+  padding: 0; 
+  overflow: visible;
+}
+
+#PinkLogo {
+  max-width: 13rem;
+  height: auto;
+  margin: 0.7rem 3rem 0 1rem;
+  transition: transform 0.2s ease-in-out; 
+}
+
+#PinkLogo:hover {
+  transform: scale(1.05); 
+}
+
+#PinkLogo:active {
+  transform: scale(1); 
+}
+
+.rah {
+  width: 80%;
+  max-width: 11rem; 
+  height: auto;
+  text-align: center;
+  margin-top: 1.3rem;
+  font-size: 1.2vw; 
+  transition: transform 0.2s ease-in-out; 
+}
+
+.rah:hover {
+  transform: scale(1.05); 
+}
+
+.rah:active {
+  transform: scale(1); 
+}
