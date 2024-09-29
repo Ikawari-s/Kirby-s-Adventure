@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import PinkLogo from "../Designs/Images/PinkLogo.png";
 import KirbSearch from "../Designs/Images/KirbSearch.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Designs/Css/GuestHeader.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const GuestHeader = () => {
   const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <header id="bodhi">
       <nav className="d-flex justify-content-center">
@@ -47,9 +48,10 @@ const GuestHeader = () => {
         </Nav.Link>
         <Nav.Link className="rah" as={Link} to="/payment">
           Payment
-        </Nav.Link>{" "}
-        {/* Added Payment Link */}
-        <Nav.Link className="rah">Help</Nav.Link>
+        </Nav.Link>
+        <Nav.Link className="rah" as={Link} to="/help"> {/* Updated Help link */}
+          Help
+        </Nav.Link>
         <Nav.Link className="rah" as={Link} to="/login">
           Log In
         </Nav.Link>
