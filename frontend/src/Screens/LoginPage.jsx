@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Designs/Css/LoginPage.css";
 import GuestHeader from "../Components/GuestHeader";
-import { Form, Button, Spinner, Alert } from 'react-bootstrap';
+import { Form, Button, Spinner, Alert } from "react-bootstrap";
 
 function LoginPage() {
   // Move the hooks inside the component
@@ -10,7 +10,10 @@ function LoginPage() {
   const [error, setError] = useState(null);
 
   const handleRegisterChange = (e) => {
-    setRegisterFormData({ ...registerFormData, [e.target.name]: e.target.value });
+    setRegisterFormData({
+      ...registerFormData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleRegisterSubmit = (e) => {
