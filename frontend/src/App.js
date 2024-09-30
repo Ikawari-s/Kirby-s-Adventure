@@ -10,6 +10,8 @@ import FindEventsPage from "./Screens/FindEventsPage";
 import CreateEventsPage from "./Screens/CreateEventsPage";
 import PaymentPage from "./Screens/PaymentPage";
 import HelpPage from './Screens/HelpPage';
+import RegisterPage from "./Screens/RegisterPage";
+import OrganizeEvent from "./Screens/OrganizeEvent";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route path="/create-events" element={<CreateEventsPage />} />
             <Route path="/payment" element={<PaymentPage />} />
             <Route path="/help" element={<HelpPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/organize-events" element={<OrganizeEvent />} />
           </Routes>
         </main>
         <Footer />

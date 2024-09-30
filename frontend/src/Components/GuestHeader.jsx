@@ -46,6 +46,9 @@ const GuestHeader = () => {
         <Nav.Link className="rah" as={Link} to="/create-events">
           Create Events
         </Nav.Link>
+        <Nav.Link className="rah" as={Link} to="/organize-events">
+          Organize Events
+        </Nav.Link>
         <Nav.Link className="rah" as={Link} to="/payment">
           Payment
         </Nav.Link>
@@ -55,7 +58,7 @@ const GuestHeader = () => {
         <Nav.Link className="rah" as={Link} to="/login">
           Log In
         </Nav.Link>
-        <Nav.Link className="rah">Signup</Nav.Link>
+        <Nav.Link className="rah" as={Link} to="/register">Signup</Nav.Link>
       </nav>
     </header>
   );
