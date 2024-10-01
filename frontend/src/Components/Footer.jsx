@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Designs/Css/Footer.css";
+import PinkLogo from "../Designs/Images/PinkLogo.png";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
       itemscope
       itemtype="http://schema.org/WPFooter"
     >
-      <div
+      {/* <div
         className="social"
         role="navigation"
         aria-labelledby="social-heading"
@@ -27,9 +28,9 @@ const Footer = () => {
         <a href="#" aria-label="Instagram">
           <i className="fa-brands fa-instagram"></i>
         </a>
-      </div>
-      <hr className="footer-break" />
-      <ul
+      </div> */}
+
+<ul
         className="footer-links"
         role="navigation"
         aria-labelledby="footer-links-heading"
@@ -50,9 +51,16 @@ const Footer = () => {
           <a href="#">Contact</a>
         </li>
       </ul>
+
+      <hr className="footer-break" />
+      
+      <div className="footer-logo">
+      <img src={PinkLogo} alt="Logo" id="FooterLogo" />
       <p className="copyright">
         © 2024 Kirbivent | All Rights Reserved
       </p>
+      </div>
+
     </footer>
   );
 };

@@ -2,7 +2,7 @@
   padding: 40px 0;
   background-color: #9a566ce5;
   color: white;
-  width: 100%; 
+  width: 98.95vw; 
   position: relative; 
   bottom: 0; 
 }
@@ -63,9 +63,29 @@
 }
 
 .footer .footer-break {
-  height: 2px;
+  height: 1.5px;
+  width: 90%;
+  margin: 1rem auto;
   border-width: 0;
-  color: gray;
   background-color: white;
 }
 
+.footer-logo {
+  /* background-color: red; */
+  margin: 1rem auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  font-weight: 500;
+}
+
+#FooterLogo {
+  max-width: 13rem;
+  height: auto;
+  margin: 0.7rem 3rem 0 1rem;
+  transition: transform 0.2s ease-in-out;
+}

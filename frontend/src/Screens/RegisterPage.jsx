@@ -1,34 +1,74 @@
-import React from "react";
-import "../Designs/Css/RegisterPage.css";
+import React, { useState } from "react";
+import "../Designs/Css/RegisterPage.css"; // Adjust the path as necessary
+import GuestHeader from "../Components/GuestHeader";
+import { Form, Button } from "react-bootstrap";
+import PinkLogo from "../Designs/Images/PinkLogo.png";
+import { Link } from 'react-router-dom';
 
-const RegisterPage = () => {
+function RegisterPage() {
+  const [registerFormData, setRegisterFormData] = useState({});
+
+  const handleRegisterChange = (e) => {
+    setRegisterFormData({
+      ...registerFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log("Form submitted:", registerFormData);
+  };
+
   return (
-    <div className="container">
+    <div>
       {/* Left Section: Form */}
       <div className="left-section">
         <div className="form-container">
-          <div className="logo">
-            <h1>Kirbivent</h1>
-          </div>
-          <form>
-            <input type="email" placeholder="Email Address" required />
-            <input type="password" placeholder="Password" required />
-            <button type="submit" className="signup-btn">SIGN UP</button>
+          <img src={PinkLogo} alt="Logo" id="LoginLogo" />
+          <form onSubmit={handleRegisterSubmit}>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              required
+              onChange={handleRegisterChange}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+              onChange={handleRegisterChange}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              onChange={handleRegisterChange}
+            />
+            <input
+              type="password"
+              name="confirm-password"
+              placeholder="Confirm Password"
+              required
+              onChange={handleRegisterChange}
+            />
+            <button type="submit" className="signup-btn">REGISTER</button>
           </form>
-          <p>Already have an account?</p>
-          <button className="login-btn">LOG IN</button>
+          <h5>Already have an account?</h5>
+          <Link to="/login">
+            <button className="login-btn">LOG IN</button>
+          </Link> 
         </div>
       </div>
-
-      {/* Right Section: Welcome Message */}
-      <div className="right-section">
-        <h2>Welcome!</h2>
-        <footer>
-          <p>Copyright &copy; 2024 Logo. All rights reserved.</p>
-        </footer>
-      </div>
+      <h1 className="welcome-font">
+        <strong>Welcome!</strong>
+      </h1>
     </div>
   );
-};
+}
 
 export default RegisterPage;

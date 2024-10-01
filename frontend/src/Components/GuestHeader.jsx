@@ -46,12 +46,12 @@ const GuestHeader = () => {
         <Nav.Link className="rah" as={Link} to="/create-events">
           Create Events
         </Nav.Link>
-        <Nav.Link className="rah" as={Link} to="/organize-events">
+        {/* <Nav.Link className="rah" as={Link} to="/organize-events">
           Organize Events
-        </Nav.Link>
-        <Nav.Link className="rah" as={Link} to="/payment">
+        </Nav.Link> */}
+        {/* <Nav.Link className="rah" as={Link} to="/payment">
           Payment
-        </Nav.Link>
+        </Nav.Link> */} 
         <Nav.Link className="rah" as={Link} to="/help"> {/* Updated Help link */}
           Help
         </Nav.Link>

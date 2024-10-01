@@ -3,7 +3,13 @@ import "../Designs/Css/LandingPage.css";
 import GuestHeader from "../Components/GuestHeader";
 function LandingPage() {
   return (
-    <div style={{ textAlign: "center", marginTop: "300px" }}>Landing Page</div>
+    <div className="container">
+        <div className="row">
+          <div className="small-12 columns">
+            <h1>Landing Page</h1>
+          </div>
+        </div>
+      </div>
   );
 }
 
