@@ -1,7 +1,25 @@
+.kirbcloud-image {
+  margin-top: -85px;
+  background-image: url('../Images/Kirbcloud.png'); 
+  background-repeat: repeat-x; 
+  background-size: 200px auto; 
+  height: 70px;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    background-position: 0 0; 
+  }
+  100% {
+    background-position: -200px 0; 
+  }
+}
+
 .footer {
   padding: 40px 0;
-  background-color: #9a566ce5;
-  color: white;
+  background-color: white;
+  color: #ff2b91;
   width: 98.95vw; 
   position: relative; 
   bottom: 0; 
@@ -44,7 +62,7 @@
   display: inline-block;
   text-align: center;
   border-radius: 50%;
-  border: 1px solid #ccc;
+  border: 1px solid #ff2b91;
   margin: 0 8px;
   color: inherit;
   opacity: 0.75;
@@ -58,7 +76,7 @@
   margin-top: 15px;
   text-align: center;
   font-size: 13px;
-  color: #cfcece;
+  color: #ff2b91;
   margin-bottom: 0;
 }
 
@@ -67,7 +85,7 @@
   width: 90%;
   margin: 1rem auto;
   border-width: 0;
-  background-color: white;
+  background-color: #ff2b91;
 }
 
 .footer-logo {
@@ -88,4 +106,16 @@ a {
   height: auto;
   margin: 0.7rem 3rem 0 1rem;
   transition: transform 0.2s ease-in-out;
+}
+
+.footer .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #ff2b91;
+  margin-bottom: 0;
+  max-width: 100%;         /* Ensure it doesn't exceed the container width */
+  overflow: hidden;        /* Hide any overflow */
+  white-space: nowrap;     /* Prevent line breaks */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
 }

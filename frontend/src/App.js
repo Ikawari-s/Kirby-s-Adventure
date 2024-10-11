@@ -29,6 +29,7 @@ function App() {
             <Route path="/help" element={<HelpPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/organize-events" element={<OrganizeEvent />} />
+            <Route path="/payment" element={<PaymentPage />} />
           </Routes>
         </main>
         <Footer />

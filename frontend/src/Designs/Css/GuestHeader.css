@@ -4,9 +4,19 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   color: #232323;
   z-index: 1000;
+  margin-top: -2rem;
   top: 0;
   left: 0;
   width: 100vw;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+}
+
+.navbut {
+  margin-top: 1rem;
+  margin-right: 2rem;
+  transition: ease-in-out 0.2s;
 }
 
 body {
@@ -17,7 +27,8 @@ body {
 #search {
   background-color: white;
   border-radius: 3rem;
-  margin-top: 0.7rem;
+  margin-top: 1.5rem; 
+  margin-left: 2rem; 
   height: 3rem;
   width: 80%;
   max-width: 25rem;
@@ -31,7 +42,7 @@ body {
 }
 
 .input-group-text {
-  border: none !important;
+  border: none !important; /* Remove borders */
   background: none;
   cursor: pointer;
   padding: 0 !important;
@@ -48,22 +59,15 @@ body {
   transform: scale(1.05);
 }
 
-#location:active {
-  transform: scale(1);
-}
-
 .form-control {
-  border: 0px !important;
+  border: 0px !important; /* Remove borders */
   background: none;
   max-width: 23rem;
   margin-right: 2.5rem;
 }
 
 .form-control:focus {
-  border: 0px !important;
-  max-width: 23rem;
-  background: none;
-  outline: none !important;
+  outline: none !important; /* Remove outline */
   box-shadow: none !important;
 }
 
@@ -81,10 +85,6 @@ body {
   transform: scale(1.05);
 }
 
-#Kirb:active {
-  transform: scale(1);
-}
-
 .kirb-search {
   position: relative;
   padding: 0;
@@ -94,7 +94,7 @@ body {
 #PinkLogo {
   max-width: 13rem;
   height: auto;
-  margin: 0.7rem 3rem 0 1rem;
+  margin: 0.7rem 1rem;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -102,15 +102,13 @@ body {
   transform: scale(1.05);
 }
 
-#PinkLogo:active {
-  transform: scale(1);
-}
-
 .rah {
   width: 80%;
   max-width: 11rem;
   height: auto;
   text-align: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
   margin-top: 1.3rem;
   transition: transform 0.2s ease-in-out;
 }
@@ -119,6 +117,12 @@ body {
   transform: scale(1.05);
 }
 
+/* Remove active transformation */
 .rah:active {
-  transform: scale(1);
+  transform: none; /* Keep it static on click */
+}
+
+.navbar-nav {
+  margin-right: 2rem;
+  margin-top: 0rem;
 }
