@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
 import "../Designs/Css/PaymentPage.css";
 
 const PaymentPage = () => {
+  const [sdkReady, setSdkReady] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const [formData, setFormData] = useState({
     cardNumber: "",
     nameOnCard: "",
@@ -22,13 +26,97 @@ const PaymentPage = () => {
     console.log("Form submitted:", formData);
   };
 
+  const onError = (err) => {
+    console.error("PayPal SDK error:", err);
+  };
+
+  useEffect(() => {
+    const addPayPalScript = () => {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src =
+        "https://www.paypal.com/sdk/js?client-id=AZ6hae1t5ioxaMWWiAd5uTYQPu2uJGbTtz_Pjjde_KcrdtK8iIJDzrxvBs1T7Y7JA4tV4BK5ve9tLNPK&currency=USD";
+      script.async = true;
+      script.onload = () => {
+        setSdkReady(true);
+      };
+      document.body.appendChild(script);
+    };
+
+    addPayPalScript();
+    const hasReloaded = localStorage.getItem("hasReloaded");
+    if (!hasReloaded) {
+      addPayPalScript();
+      window.location.reload();
+      localStorage.setItem("hasReloaded", true);
+    }
+
+    return () => {
+      document.body.removeChild(document.body.lastChild);
+    };
+  }, []);
+
+  const createOrderHandler = (data, actions) => {
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: "50.00", // Total amount for the tickets
+            currency_code: "USD",
+            breakdown: {
+              item_total: { currency_code: "USD", value: "40.00" }, // Ticket price total
+              tax_total: { currency_code: "USD", value: "5.00" }, // Tax
+              shipping: { currency_code: "USD", value: "0.00" }, // No shipping for digital tickets
+              handling: { currency_code: "USD", value: "5.00" }, // Service fee
+            },
+          },
+          description: "Event tickets for XYZ Concert", // Description of the purchase
+          items: [
+            {
+              name: "General Admission Ticket", // Ticket type or name
+              unit_amount: {
+                currency_code: "USD",
+                value: "20.00", // Price of each ticket
+              },
+              quantity: "2", // Number of tickets being purchased
+            },
+            {
+              name: "Service Fee", // Optional service fee
+              unit_amount: {
+                currency_code: "USD",
+                value: "5.00",
+              },
+              quantity: "1", // Quantity of the service fee
+            },
+          ],
+        },
+      ],
+    });
+  };
+
+  const onSuccessHandler = (details, data) => {
+    console.log("Payment successful:", details);
+
+    setShowConfirmation(true);
+  };
+
+  const onApproveHandler = async (data, actions) => {
+    const order = await actions.order.capture();
+    console.log("Order captured:", order);
+
+    onSuccessHandler(order);
+  };
+
   return (
     <div className="payment-container">
       <h1 className="payment-title">Add a payment method</h1>
-      <p className="payment-subtitle">Please add your credit card details below.</p>
+      <p className="payment-subtitle">
+        Please add your credit card details below.
+      </p>
 
       <form className="payment-form" onSubmit={handleSubmit}>
-        <div className="card-details">qweqwe
+        <div className="card-details">
+          qweqwe
           <div className="card-input">
             <label>Card number</label>
             <input
@@ -135,6 +223,22 @@ const PaymentPage = () => {
           the selected method.
         </p>
       </form>
+
+      <div className="mt-3">
+        <PayPalScriptProvider
+          options={{
+            "client-id":
+              "AZ6hae1t5ioxaMWWiAd5uTYQPu2uJGbTtz_Pjjde_KcrdtK8iIJDzrxvBs1T7Y7JA4tV4BK5ve9tLNPK",
+          }}
+        >
+          <PayPalButtons
+            createOrder={createOrderHandler}
+            onSuccess={onSuccessHandler}
+            onApprove={onApproveHandler}
+            onError={onError}
+          />
+        </PayPalScriptProvider>
+      </div>
     </div>
   );
 };
