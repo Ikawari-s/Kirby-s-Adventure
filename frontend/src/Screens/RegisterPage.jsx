@@ -1,74 +1,363 @@
-import React, { useState } from "react";
-import "../Designs/Css/RegisterPage.css"; // Adjust the path as necessary
-import GuestHeader from "../Components/GuestHeader";
-import { Form, Button } from "react-bootstrap";
-import PinkLogo from "../Designs/Images/PinkLogo.png";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Form, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Components/Loader";
+import Message from "../Components/Message";
+import { register } from "../actions/userActions";
+import FormContainer from "../Components/FormContainer";
 
-function RegisterPage() {
-  const [registerFormData, setRegisterFormData] = useState({});
+import {
+  Typography,
+  Avatar,
+  Box,
+  TextField,
+  Button,
+  Grid,
+  IconButton,
+  InputAdornment,
+} from "@mui/material";
+import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-  const handleRegisterChange = (e) => {
-    setRegisterFormData({
-      ...registerFormData,
-      [e.target.name]: e.target.value,
-    });
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "instant",
+  });
+}
+
+function RegisterScreen() {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [userType, setUserType] = useState("reader"); // Default user type is reader
+  const [message, setMessage] = useState("");
+  const location = useLocation();
+
+  const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  const userRegister = useSelector((state) => state.userRegister);
+  const { error, loading, userInfo } = userRegister;
+
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, userInfo, redirect]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setMessage("Passwords do not match");
+    } else {
+      // Dispatch register action with user type
+      dispatch(register(name, email, password, userType));
+    }
   };
 
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", registerFormData);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (
-    <div>
-      {/* Left Section: Form */}
-      <div className="left-section">
-        <div className="form-container">
-          <img src={PinkLogo} alt="Logo" id="LoginLogo" />
-          <form onSubmit={handleRegisterSubmit}>
-            <input
+    <FormContainer>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Avatar sx={{ m: 1, bgcolor: "#a85488" }}>
+            <PersonAddAltIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5" sx={{ color: "#a85488" }}>
+            Sign Up
+          </Typography>
+          {error && (
+            <Message
+              severity="error"
+              variant="filled"
+              sx={{ backgroundColor: "#f3969a" }}
+            >
+              {message}
+            </Message>
+          )}
+          <Box component="form" onSubmit={submitHandler} sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
+              name="name"
+              autoComplete="name"
+              autoFocus
               type="text"
-              name="username"
-              placeholder="Username"
-              required
-              onChange={handleRegisterChange}
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderColor: "#a85488 !important",
+                  backgroundColor: "#fff !important",
+                },
+                "& label.Mui-focused": {
+                  color: "#a85488 !important", // Change label color when focused
+                },
+                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& input": {
+                  color: "black !important", // Change input text color
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& .MuiInputLabel-root": {
+                  color: "#a85488 !important", // Change label color
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#a85488 !important", // Change border color on hover
+                  },
+                "& .MuiOutlinedInput-root:active": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+                "& .input": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+              }}
             />
-            <input
-              type="email"
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
               name="email"
-              placeholder="Email Address"
-              required
-              onChange={handleRegisterChange}
+              autoComplete="email"
+              autoFocus
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderColor: "#a85488 !important",
+                  backgroundColor: "#fff !important",
+                },
+                "& label.Mui-focused": {
+                  color: "#a85488 !important", // Change label color when focused
+                },
+                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& input": {
+                  color: "black !important", // Change input text color
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& .MuiInputLabel-root": {
+                  color: "#a85488 !important", // Change label color
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#a85488 !important", // Change border color on hover
+                  },
+                "& .MuiOutlinedInput-root:active": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+                "& .input": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+              }}
             />
-            <input
-              type="password"
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="password"
+              label="Password"
               name="password"
-              placeholder="Password"
-              required
-              onChange={handleRegisterChange}
+              autoComplete="password"
+              autoFocus
+              type={showPassword ? "text" : "password"}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={togglePasswordVisibility} edge="end">
+                      {showPassword ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderColor: "#a85488 !important",
+                  backgroundColor: "#fff !important",
+                },
+                "& label.Mui-focused": {
+                  color: "#a85488 !important", // Change label color when focused
+                },
+                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& input": {
+                  color: "black !important", // Change input text color
+                },
+                "& .MuiInputLabel-root": {
+                  color: "#a85488 !important", // Change label color
+                },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#a85488 !important", // Change border color on hover
+                  },
+                "& .MuiOutlinedInput-root:active": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+                "& .input": {
+                  color: "white !important",
+                },
+              }}
             />
-            <input
-              type="password"
-              name="confirm-password"
-              placeholder="Confirm Password"
+
+            <TextField
+              margin="normal"
               required
-              onChange={handleRegisterChange}
+              fullWidth
+              id="confirmPassword"
+              label="Confirm Password"
+              name="confirmPassword"
+              autoComplete="confirmPassword"
+              autoFocus
+              type={showConfirmPassword ? "text" : "password"}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={toggleConfirmPasswordVisibility}
+                      edge="end"
+                    >
+                      {showConfirmPassword ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderColor: "#a85488 !important",
+                  backgroundColor: "#fff !important",
+                },
+                "& label.Mui-focused": {
+                  color: "#a85488 !important", // Change label color when focused
+                },
+                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& input": {
+                  color: "black !important", // Change input text color
+                },
+                "& .MuiInputLabel-root": {
+                  color: "#a85488 !important", // Change label color
+                },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#a85488 !important", // Change border color on hover
+                  },
+                "& .MuiOutlinedInput-root:active": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+                "& .input": {
+                  color: "white !important",
+                },
+              }}
             />
-            <button type="submit" className="signup-btn">REGISTER</button>
-          </form>
-          <h5>Already have an account?</h5>
-          <Link to="/login">
-            <button className="login-btn">LOG IN</button>
-          </Link> 
-        </div>
-      </div>
-      <h1 className="welcome-font">
-        <strong>Welcome!</strong>
-      </h1>
-    </div>
+
+            {/* <Form.Group controlId="userType" style={{ marginTop: "10px" }}>
+              <Form.Label
+                style={{
+                  color: "#a85488",
+                  fontFamily: "Helvetica",
+                  fontSize: "1rem",
+                }}
+              >
+                User Type *
+              </Form.Label>
+              <Form.Control
+                as="select"
+                value={userType}
+                onChange={(e) => setUserType(e.target.value)}
+                className="styled-select"
+              >
+                <option value="reader">Reader</option>
+                <option value="creator">Creator</option>
+              </Form.Control>
+            </Form.Group> */}
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="outlined"
+              sx={{
+                mt: 3,
+                mb: 2,
+                color: "white",
+                borderColor: "#cf8083 !important",
+                backgroundColor: "#f3969a",
+                "&:hover": {
+                  backgroundColor: "#cf8083",
+                },
+              }}
+            >
+              Sign Up
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Typography
+                  component={Link}
+                  to={redirect ? `/login?redirect=${redirect}` : "/login"}
+                  sx={{ color: "#a85488" }}
+                >
+                  {"Already have an account? Sign In"}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </>
+      )}
+    </FormContainer>
   );
 }
 
-export default RegisterPage;
+export default RegisterScreen;

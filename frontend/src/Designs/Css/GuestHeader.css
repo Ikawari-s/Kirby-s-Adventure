@@ -4,13 +4,13 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   color: #232323;
   z-index: 1000;
-  margin-top: -2rem;
+  margin-top: -2rem; /* Maintain original negative margin */
   top: 0;
   left: 0;
   width: 100vw;
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navbut {
@@ -27,8 +27,8 @@ body {
 #search {
   background-color: white;
   border-radius: 3rem;
-  margin-top: 1.5rem; 
-  margin-left: 2rem; 
+  margin-top: 1.5rem;
+  margin-left: 2rem;
   height: 3rem;
   width: 80%;
   max-width: 25rem;
@@ -125,4 +125,61 @@ body {
 .navbar-nav {
   margin-right: 2rem;
   margin-top: 0rem;
+}
+
+/* Added Responsive Styles */
+
+/* Add margin to ensure header does not overlap content */
+body {
+  margin-top: 5rem; /* Adjust to avoid overlap */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #bodhi {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #search {
+    width: 90%;
+  }
+
+  .navbut {
+    margin-top: 0.5rem;
+    margin-right: 0;
+  }
+
+  #PinkLogo {
+    max-width: 10rem;
+  }
+
+  #location {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #bodhi {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  #search {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .navbut {
+    margin-top: 1rem;
+  }
+
+  #PinkLogo {
+    max-width: 8rem;
+  }
+
+  #location {
+    font-size: 1.4rem;
+  }
 }

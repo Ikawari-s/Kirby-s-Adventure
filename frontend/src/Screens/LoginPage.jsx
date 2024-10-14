@@ -1,52 +1,249 @@
-import React, { useState } from "react";
-import "../Designs/Css/LoginPage.css";
-import GuestHeader from "../Components/GuestHeader";
-import { Form, Button } from "react-bootstrap";
-import PinkLogo from "../Designs/Images/PinkLogo.png";
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+
+import {
+  Link,
+  useLocation,
+  useSearchParams,
+  useNavigate,
+  redirect,
+} from "react-router-dom";
+
+import { Row, Col, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../actions/userActions";
+import Message from "../Components/Message";
+import Loader from "../Components/Loader";
+import FormContainer from "../Components/FormContainer";
+
+import {
+  Avatar,
+  Button,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Grid,
+  Box,
+  Typography,
+  IconButton,
+  InputAdornment,
+} from "@mui/material";
+
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "instant",
+  });
+}
 
 function LoginPage() {
-  const [registerFormData, setRegisterFormData] = useState({});
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
-  const handleRegisterChange = (e) => {
-    setRegisterFormData({
-      ...registerFormData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const location = useLocation();
+  const redirect = location.search ? location.search.split("=")[1] : "/";
 
-  const handleRegisterSubmit = (e) => {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { error, loading, userInfo } = userLogin;
+
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, dispatch, redirect, userInfo]);
+  const submitHandler = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    dispatch(login(email, password));
   };
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div>
-      {/* Left Section: Form */}
-      <div className="left-section">
-        <div className="form-container">
-          <img src={PinkLogo} alt="Logo" id="LoginLogo" />
-          <form onSubmit={handleRegisterSubmit}>
-          <input
-              type="text"
-              name="username"
-              placeholder="Username"
+    <FormContainer>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Avatar sx={{ m: 1, bgcolor: "#a85488" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5" sx={{ color: "#a85488" }}>
+            Sign in
+          </Typography>
+          {error && (
+            <Message
+              severity="error"
+              variant="filled"
+              sx={{ backgroundColor: "#f3969a" }}
+            >
+              {error.detail}
+            </Message>
+          )}
+          <Box component="form" onSubmit={submitHandler} sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
               required
-              onChange={handleRegisterChange}
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderColor: "#a85488 !important",
+                  backgroundColor: "#fff !important",
+                },
+                "& label.Mui-focused": {
+                  color: "#a85488 !important", // Change label color when focused
+                },
+                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& input": {
+                  color: "black !important", // Change input text color
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& .MuiInputLabel-root": {
+                  color: "#a85488 !important", // Change label color
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#a85488 !important", // Change border color on hover
+                  },
+                "& .MuiOutlinedInput-root:active": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+                "& .input": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+              }}
             />
-            <input type="password" name="password" placeholder="Password" required onChange={handleRegisterChange} />
-            <button type="submit" className="signup-btn">LOG IN</button>
-          </form>
-          <h5>Don't have an account?</h5>
-          <Link to="/register">
-            <button className="login-btn">SIGN UP</button>
-          </Link> 
-        </div>
-      </div>
-      <h1 className="welcome-font">
-            <strong>Welcome!</strong>
-          </h1>
-    </div>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                    >
+                      {showPassword ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderColor: "#a85488 !important",
+                  backgroundColor: "#fff !important",
+                },
+                "& label.Mui-focused": {
+                  color: "#a85488 !important", // Change label color when focused
+                },
+                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#a85488 !important", // Change border color when focused
+                },
+                "& input": {
+                  color: "black !important", // Change input text color
+                },
+                "& .MuiInputLabel-root": {
+                  color: "#a85488 !important", // Change label color
+                },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "#a85488 !important", // Change border color on hover
+                  },
+                "& .MuiOutlinedInput-root:active": {
+                  color: "white !important",
+                  borderColor: "#a85488 !important",
+                },
+                "& .input": {
+                  color: "white !important",
+                },
+              }}
+            />
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  value="remember"
+                  color="primary"
+                  sx={{
+                    color: "#a85488", // Default color of the checkbox
+                    "&.Mui-checked": {
+                      color: "#a85488", // Color of the checkbox when checked
+                    },
+                  }}
+                />
+              }
+              label="Remember me"
+              sx={{
+                "& .MuiFormControlLabel-label": {
+                  color: "#a85488", 
+                },
+              }}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="outlined"
+              sx={{
+                mt: 3,
+                mb: 2,
+                color: "white",
+                borderColor: "#cf8083 !important",
+                backgroundColor: "#f3969a",
+                "&:hover": {
+                  backgroundColor: "#cf8083",
+                },
+              }}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Typography
+                  component={Link}
+                  to={redirect ? `/register?redirect=${redirect}` : "/register"}
+                  sx={{ color: "#a85488" }}
+                >
+                  {"Don't have an account? Sign Up"}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </>
+      )}
+    </FormContainer>
   );
 }
 
