@@ -8,12 +8,14 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: -20vh;
+  color: #df6da9;
 }
 
 .help-title {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
+  text-shadow: 3px 3px #f7daea;
 }
 
 .help-buttons {
@@ -25,9 +27,9 @@ body {
 .help-button {
   padding: 10px 20px;
   font-size: 16px;
-  border: 2px solid black; /* Black border color */
+  border: 2px solid #f7daea; /* Black border color */
   border-radius: 25px; /* Rounded corners */
-  background-color: #751a71; /* Button background color */
+  background-color: #df6da9; /* Button background color */
   color: white; /* Text color */
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;

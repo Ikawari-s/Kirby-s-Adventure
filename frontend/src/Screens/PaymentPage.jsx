@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-
 import "../Designs/Css/PaymentPage.css";
 
 const PaymentPage = () => {
@@ -46,7 +45,6 @@ const PaymentPage = () => {
     addPayPalScript();
     const hasReloaded = localStorage.getItem("hasReloaded");
     if (!hasReloaded) {
-      addPayPalScript();
       window.location.reload();
       localStorage.setItem("hasReloaded", true);
     }
@@ -96,19 +94,16 @@ const PaymentPage = () => {
 
   const onSuccessHandler = (details, data) => {
     console.log("Payment successful:", details);
-
     setShowConfirmation(true);
   };
 
   const onApproveHandler = async (data, actions) => {
     const order = await actions.order.capture();
     console.log("Order captured:", order);
-
     onSuccessHandler(order);
   };
 
   return (
-  <div style={{alignContent:'center', justifyContent:'center'}}>
     <div className="payment-container">
       <h1 className="payment-title">Add a payment method</h1>
       <p className="payment-subtitle">
@@ -117,7 +112,6 @@ const PaymentPage = () => {
 
       <form className="payment-form" onSubmit={handleSubmit}>
         <div className="card-details">
-          qweqwe
           <div className="card-input">
             <label>Card number</label>
             <input
@@ -234,14 +228,12 @@ const PaymentPage = () => {
         >
           <PayPalButtons
             createOrder={createOrderHandler}
-            onSuccess={onSuccessHandler}
             onApprove={onApproveHandler}
             onError={onError}
           />
         </PayPalScriptProvider>
       </div>
     </div>
-  </div>    
   );
 };
 
