@@ -7,7 +7,7 @@ import Kirbcloud from "../Designs/Images/Kirbcloud.png";
 const Footer = () => {
   return (
     <>
-      <div className="kirbcloud-image"></div>
+      {/* <div className="kirbcloud-image"></div> */}
 
       <footer
         className="footer"
@@ -15,6 +15,8 @@ const Footer = () => {
         itemscope
         itemtype="http://schema.org/WPFooter"
       >
+        
+      <div className="kirbcloud-image"></div>
         <ul
           className="footer-links"
           role="navigation"

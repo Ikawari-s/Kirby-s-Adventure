@@ -59,8 +59,12 @@ body {
   transform: scale(1.05);
 }
 
+#location:active {
+  transform: none; 
+}
+
 .form-control {
-  border: 0px !important; /* Remove borders */
+  border: 0px !important;
   background: none;
   max-width: 23rem;
   margin-right: 2.5rem;
@@ -85,10 +89,15 @@ body {
   transform: scale(1.05);
 }
 
+#Kirb:active {
+  transform: none; /* Keep it static on click */
+}
+
 .kirb-search {
   position: relative;
   padding: 0;
   overflow: visible;
+  z-index: 100;
 }
 
 #PinkLogo {
@@ -100,6 +109,10 @@ body {
 
 #PinkLogo:hover {
   transform: scale(1.05);
+}
+
+#PinkLogo:active {
+  transform: none; /* Keep it static on click */
 }
 
 .rah {

@@ -5,7 +5,7 @@ import "../Designs/Css/FindEventsPage.css";
 function FindEventsPage() {
   return (
     <>
-      <div className="container">
+      <div className="container" style={{marginTop:'90vh', marginBottom: '25vh'}}>
         <div className="row">
           <div className="small-12 columns">
             <h2 className="widget-title">

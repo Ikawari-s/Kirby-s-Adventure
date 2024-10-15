@@ -337,6 +337,19 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    margin-top: 20%;
+    margin-bottom: 10%;
+  }
+}
+@media (min-width: 769px) {
+  .container {
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+}
+
 /* Media Queries for Responsive Design (BACKUP) */
 /* @media (max-width: 1450px) {
   .container {

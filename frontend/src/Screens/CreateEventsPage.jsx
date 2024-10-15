@@ -49,7 +49,7 @@ function CreateEventsPage() {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{marginTop:'40vh', width:'100vw'}}>
         <div className="event-form">
           <h2 className="dancing-font">
             <strong>Create an Event</strong>

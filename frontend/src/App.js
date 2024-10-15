@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
         <GuestHeader />
-        <main className="py-3">
+        <main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />

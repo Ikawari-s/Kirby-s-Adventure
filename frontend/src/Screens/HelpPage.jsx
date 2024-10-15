@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const HelpPage = () => {
   return (
+  <div className="container">
     <div className="help-container">
       <h1 className="help-title">We’re here to help</h1>
       <div className="help-buttons">
@@ -13,6 +14,7 @@ const HelpPage = () => {
         <Link className="help-button" as={Link} to="/payment">Managing Payments</Link>
       </div>
     </div>
+  </div>  
   );
 };
 

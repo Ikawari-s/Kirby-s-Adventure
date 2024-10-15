@@ -1,5 +1,5 @@
 .kirbcloud-image {
-  margin-top: -85px;
+  margin-top: -110px;
   background-image: url('../Images/Kirbcloud.png'); 
   background-repeat: repeat-x; 
   background-size: 200px auto; 
@@ -21,8 +21,18 @@
   background-color: white;
   color: #ff2b91;
   width: 98.95vw; 
-  position: relative; 
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  left: 0;
   bottom: 0; 
+}
+
+@media (max-width: 768px) {
+  .footer {
+    width: 100vw; /* Set the width to 100vw on smaller screens */
+  }
 }
 
 .footer ul {

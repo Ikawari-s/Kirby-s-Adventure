@@ -2,13 +2,16 @@
   background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/15415.png);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 98.9vw;
+  background-position: center;
   height: 100vh;
-  padding: 20rem;
+}
+
+.wow {
+  padding-top: 40vh;
 }
 
 body{
-  background-color: #ffb5b6 !important;
+  background-color: #f8b3b6 !important;
 }
 
 .kirb-bg h1{
