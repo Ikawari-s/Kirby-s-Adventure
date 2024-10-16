@@ -84,7 +84,13 @@ body {
   margin-top: 4px;
 }
 
-.duration {
+.start-duration {
+  font-size: 2em;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.end-duration {
   font-size: 2em;
   font-weight: 900;
   line-height: 1.3;
@@ -405,4 +411,3 @@ body {
     margin-top: 25rem;
   }
 } */
-

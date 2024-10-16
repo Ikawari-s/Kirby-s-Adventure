@@ -15,8 +15,7 @@ const Footer = () => {
         itemscope
         itemtype="http://schema.org/WPFooter"
       >
-        
-      <div className="kirbcloud-image"></div>
+        <div className="kirbcloud-image"></div>
         <ul
           className="footer-links"
           role="navigation"

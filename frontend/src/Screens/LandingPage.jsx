@@ -4,16 +4,21 @@ import GuestHeader from "../Components/GuestHeader";
 import Kirbface from "../Designs/Images/Kirbface.png";
 function LandingPage() {
   return (
-    <div className="container kirb-bg">
-        <div className="row">
-            <div className="small-12 columns wow">
-              <h1>Effortless Events, Seamless Experiences.</h1>
-              <h3>Join Us Today!</h3>
-              <button>REACH OUT</button>
-            </div>
+    <div
+      className="container kirb-bg"
+      style={{ marginTop: "-30vh", width: "fit-content", marginBottom: "0vh" }}
+    >
+      <div className="row">
+        <div className="small-12 columns wow">
+          <h1>Effortless Events, Seamless Experiences.</h1>
+          <h3>Join Us Today!</h3>
+          <button>REACH OUT</button>
         </div>
       </div>
+    </div>
   );
 }
 
 export default LandingPage;
+
+{/* <div className="row" style={{ zIndex: 1000 }}></div> */}

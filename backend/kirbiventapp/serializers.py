@@ -3,10 +3,8 @@ from django.contrib.auth.models import User
 from .models import *
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from .models import Event
 # from django.contrib.auth.models import Group
-# from rest_framework import serializers
-
-# Create your serializers here.
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
@@ -50,3 +48,11 @@ class UserSerializerWithToken(UserSerializer):
     def get_token(self, obj):
         token = RefreshToken.for_user(obj)
         return str(token.access_token)
+
+class EventSerializer(serializers.ModelSerializer):
+    startDate = serializers.DateTimeField(source='start_date')  # Map frontend startDate to start_date
+    endDate = serializers.DateTimeField(source='end_date')      # Map frontend endDate to end_date
+
+    class Meta:
+        model = Event
+        fields = ['title', 'location', 'startDate', 'endDate', 'description']

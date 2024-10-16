@@ -1,89 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GuestHeader from "../Components/GuestHeader";
 import "../Designs/Css/FindEventsPage.css";
 
 function FindEventsPage() {
+  const [events, setEvents] = useState([]); // State to hold events
+
+  useEffect(() => {
+    // Fetch the created events from the backend when the component mounts
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/create/"); // Adjust the endpoint as needed
+        if (!response.ok) {
+          throw new Error("Failed to fetch events");
+        }
+        const data = await response.json();
+        setEvents(data); // Update state with fetched events
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+
+    fetchEvents(); // Call the fetch function
+  }, []);
+
   return (
     <>
-      <div className="container" style={{marginTop:'90vh', marginBottom: '25vh'}}>
-        <div className="row">
-          <div className="small-12 columns">
-            <h2 className="widget-title">
-              <strong>Upcoming Events</strong>
-            </h2>
-            <hr className="event-underline" />
+      <div className="row" style={{ zIndex: 1000, marginTop: "-35vh" }}>
+        <div className="small-12 columns">
+          <h2 className="widget-title">
+            <strong>Upcoming Events</strong>
+          </h2>
+          <hr className="event-underline" />
 
-            <ul className="event-list">
-              <li className="event">
+          <ul className="event-list">
+            {events.map((event, index) => (
+              <li className="event" key={index}>
                 <div className="date">
                   <time>
-                    <span className="duration">September 28, 2024</span>
+                    <span className="start-duration">{event.startDate}</span>
                     <span className="to-duration"> - to - </span>
-                    <span className="duration">September 29, 2024</span>
+                    <span className="end-duration">{event.endDate}</span>
                     <br />
-                    <span className="location">Angeles City, Philippines</span>
+                    <span className="location">{event.location}</span>
                   </time>
                   <i className="fas fa-minus minimize-icon"></i>
                 </div>
 
                 <div className="info">
-                  <h2 className="title">Kirby vs Helaena</h2>
-                  <p className="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
+                  <h2 className="title">{event.title}</h2>
+                  <p className="desc">{event.description}</p>
                 </div>
               </li>
-
-              <li className="event">
-                <div className="date">
-                  <time>
-                    <span className="duration">September 30, 2024</span>
-                    <span className="to-duration"> - to - </span>
-                    <span className="duration">October 1, 2024</span>
-                    <br />
-                    <span className="location">Angeles City, Philippines</span>
-                  </time>
-                  <i className="fas fa-minus minimize-icon"></i>
-                </div>
-
-                <div className="info">
-                  <h2 className="title">Kirby vs Klein</h2>
-                  <p className="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                </div>
-              </li>
-
-              <li className="event">
-                <div className="date">
-                  <time>
-                    <span className="duration">October 2, 2024</span>
-                    <span className="to-duration"> - to - </span>
-                    <span className="duration">October 3, 2024</span>
-                    <br />
-                    <span className="location">Angeles City, Philippines</span>
-                  </time>
-                  <i className="fas fa-minus minimize-icon"></i>
-                </div>
-
-                <div className="info">
-                  <h2 className="title">Kirby vs Liam</h2>
-                  <p className="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
       </div>
     </>

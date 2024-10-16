@@ -1,24 +1,13 @@
 import React, { useState } from "react";
 import GuestHeader from "../Components/GuestHeader";
 import "../Designs/Css/CreateEventsPage.css";
+import Swal from "sweetalert2";
 
 function CreateEventsPage() {
-  const [event, setEvent] = useState({
-    title: "",
-    location: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-  });
-
   const [pickerOpen, setPickerOpen] = useState({
     startDate: false,
     endDate: false,
   });
-
-  const handleChange = (e) => {
-    setEvent({ ...event, [e.target.name]: e.target.value });
-  };
 
   const togglePicker = (inputName) => {
     const inputField = document.getElementsByName(inputName)[0];
@@ -34,22 +23,75 @@ function CreateEventsPage() {
     });
   };
 
-  const handleSave = () => {
-    alert("Event Saved!");
+  const [event, setEvent] = useState({
+    title: "",
+    location: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+  });
+
+  const handleChange = (e) => {
+    setEvent({ ...event, [e.target.name]: e.target.value });
   };
 
-  const handleEdit = () => {
-    alert("Editing Event...");
-  };
+  // Function to handle API call to Django backend
+  const handleCreate = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/create/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(event),
+      });
 
-  const handleDiscard = () => {
-    setEvent({ title: "", location: "", startDate: "", endDate: "", description: "" });
-    alert("Changes Discarded!");
+      if (response.ok) {
+        Swal.fire({
+          title: "Success!",
+          text: "Event Created Successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+
+        // Reset form after successful creation
+        setEvent({
+          title: "",
+          location: "",
+          startDate: "",
+          endDate: "",
+          description: "",
+        });
+      } else {
+        const errorData = await response.json();
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to create event: " + JSON.stringify(errorData),
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+    } catch (error) {
+      console.error("Error creating event:", error);
+      Swal.fire({
+        title: "Error!",
+        text: "An error occurred while creating the event.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   return (
     <>
-      <div className="container" style={{marginTop:'40vh', width:'100vw'}}>
+      <div
+        className="container"
+        style={{
+          marginTop: "-10vh",
+          width: "fit-content",
+          marginBottom: "0vh",
+        }}
+      >
         <div className="event-form">
           <h2 className="dancing-font">
             <strong>Create an Event</strong>
@@ -85,7 +127,6 @@ function CreateEventsPage() {
               value={event.startDate}
               onChange={handleChange}
               onClick={() => togglePicker("startDate")}
-              style={{ cursor: "pointer" }}
             />
           </div>
 
@@ -97,7 +138,6 @@ function CreateEventsPage() {
               value={event.endDate}
               onChange={handleChange}
               onClick={() => togglePicker("endDate")}
-              style={{ cursor: "pointer" }}
             />
           </div>
 
@@ -113,9 +153,7 @@ function CreateEventsPage() {
           </div>
 
           <div className="button-group">
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDiscard}>Discard</button>
+            <button onClick={handleCreate}>CREATE</button>
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ body {
   border-radius: 8px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
 }
 
 .event-form:hover {
@@ -46,11 +47,12 @@ h2 {
 
 .form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-family: "Hanken Grotesk", sans-serif;
   color: rgb(145, 144, 144);
+  box-sizing: border-box;
 }
 
 .form-group input[type="datetime-local"] {
