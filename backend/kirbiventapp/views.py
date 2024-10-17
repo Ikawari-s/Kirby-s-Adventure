@@ -84,6 +84,12 @@ def create_event(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class EventViewSet(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
-    serializer_class = EventSerializer
+# class EventViewSet(viewsets.ModelViewSet):
+#     queryset = Event.objects.all()
+#     serializer_class = EventSerializer
+
+@api_view(['GET'])
+def get_events(request):
+    events = Event.objects.all()  
+    serializer = EventSerializer(events, many=True)  
+    return Response(serializer.data)  

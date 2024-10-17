@@ -66,7 +66,7 @@ function CreateEventsPage() {
         const errorData = await response.json();
         Swal.fire({
           title: "Error!",
-          text: "Failed to create event: " + JSON.stringify(errorData),
+          text: "Unable to Create Event. Please check that all required fields are completed correctly.",
           icon: "error",
           confirmButtonText: "OK",
         });
