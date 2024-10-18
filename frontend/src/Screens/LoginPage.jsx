@@ -207,7 +207,7 @@ function LoginPage() {
               label="Remember me"
               sx={{
                 "& .MuiFormControlLabel-label": {
-                  color: "#a85488", 
+                  color: "#a85488",
                 },
               }}
             />

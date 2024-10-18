@@ -29,7 +29,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:8000/api/users/login/",
+      "http://localhost:8000/api/login/",
       { username: email, password: password },
       config
     );
@@ -68,7 +68,7 @@ export const register =
       };
 
       const { data } = await axios.post(
-        "http://localhost:8000/api/users/register/",
+        "http://localhost:8000/api/register/",
         { name: name, email: email, password: password },
         config
       );
