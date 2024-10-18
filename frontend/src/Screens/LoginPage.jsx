@@ -227,7 +227,7 @@ function LoginPage() {
                 },
               }}
             >
-              Sign In
+              Log In
             </Button>
             <Grid container>
               <Grid item>

@@ -19,7 +19,6 @@ body {
   border-radius: 8px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000;
 }
 
 .event-form:hover {

@@ -5,13 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import GuestHeader from "./Components/GuestHeader";
 import Footer from "./Components/Footer";
 import LandingPage from "./Screens/LandingPage";
+import RegisterPage from "./Screens/RegisterPage";
 import FindEventsPage from "./Screens/FindEventsPage";
 import CreateEventsPage from "./Screens/CreateEventsPage";
 import PaymentPage from "./Screens/PaymentPage";
 import HelpPage from './Screens/HelpPage';
 import OrganizeEvent from "./Screens/OrganizeEvent";
 import LoginPage from "./Screens/LoginPage";
-import RegisterPage from "./Screens/RegisterPage";
+import AboutUs from "./Screens/AboutUs";
+import Contact from "./Screens/Contact";
+import Privacy from "./Screens/Privacy";
+import Terms from "./Screens/Terms";
 
 
 function App() {
@@ -29,6 +33,10 @@ function App() {
             <Route path="/help" element={<HelpPage />} />
             <Route path="/organize-events" element={<OrganizeEvent />} />
             <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/terms" element={<AboutUs />} />
+            <Route path="/privacy" element={<Terms />} />
+            <Route path="/contact" element={<Privacy />} />
+            <Route path="/about-us" element={<Contact />} />
           </Routes>
         </main>
         <Footer />

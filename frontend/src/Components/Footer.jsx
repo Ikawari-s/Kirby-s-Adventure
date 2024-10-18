@@ -7,7 +7,6 @@ import Kirbcloud from "../Designs/Images/Kirbcloud.png";
 const Footer = () => {
   return (
     <>
-      {/* <div className="kirbcloud-image"></div> */}
 
       <footer
         className="footer"
@@ -25,16 +24,16 @@ const Footer = () => {
             Footer Links
           </h3>
           <li>
-            <Link to="#">About</Link>
+            <Link to="/about-us">About Us</Link>
           </li>
           <li>
-            <Link to="#">Terms</Link>
+            <Link to="/terms">Terms</Link>
           </li>
           <li>
-            <Link to="#">Privacy</Link>
+            <Link to="/privacy">Privacy</Link>
           </li>
           <li>
-            <Link to="#">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
 

@@ -12,7 +12,6 @@ function FormContainer({ children }) {
           flexDirection: "column",
           alignItems: "center",
           color: "inherit",
-          zIndex: "1000 !important",
           position: "relative", // Ensure positioning is applied
           // Optionally force priority with !important
           // zIndex: '1000 !important',

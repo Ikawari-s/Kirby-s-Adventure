@@ -28,7 +28,7 @@ function scrollToTop() {
   });
 }
 
-function RegisterScreen() {
+function RegisterPage() {
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -360,4 +360,4 @@ function RegisterScreen() {
   );
 }
 
-export default RegisterScreen;
+export default RegisterPage;
