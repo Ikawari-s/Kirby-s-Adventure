@@ -3,11 +3,14 @@ body {
   background-color: #f4f4f9;
 }
 
+/* Container adjusted for the new header and footer heights */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: calc(100vh - 260px); 
+  padding-top: 20px; 
+  padding-bottom: 20px;
 }
 
 .event-form {
