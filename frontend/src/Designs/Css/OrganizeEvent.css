@@ -1,129 +1,133 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .organize-event-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Distributes space between header, content, and footer */
-    background-color: #ffc4f9; /* Yellow background */
-    min-height: 100vh; /* Ensures the page takes up the full height */
-  }
-  
-  .header {
-    background-color: #f0f0f0; /* Light gray header */
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-    border-bottom: 2px solid #ddd;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #6d4c41; /* Brown color */
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.help-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Adds space between the navbar and the main content */
+}
+
+.help-title {
+  font-size: 36px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #df6da9;
+  text-shadow: 3px 3px #f7daea;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #f7daea;
+  border-radius: 25px;
+  background-color: #df6da9;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #a16d9a;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
+  width: 100%;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.action-button {
+  background-color: #ffffff;
+  border: 2px solid hsla(341, 96%, 58%, 0.523);
+  color: #df6da9;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #df6da9;
+  color: white;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .help-title {
+    font-size: 28px;
+    margin-bottom: 15px;
   }
   
   .nav-button {
-    background-color: #ffffff;
-    border: none;
-    padding: 15px 30px;
-    cursor: pointer;
-    border-radius: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    padding: 8px 16px;
+    font-size: 14px;
   }
-  
-  .nav-button.active {
-    background-color: #fb2de387; /* Active button yellow */
-    color: white;
-  }
-  
-  .nav-button:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1; /* Take up remaining vertical space */
-    padding: 20px;
-    width: 100%;
-  }
-  
-  .action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-  }
-  
-  .action-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 20px;
-    padding: 30px;
-    width: 300px; /* Set a fixed width to control layout */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    text-align: center;
-  }
-  
-  .action-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
-  }
-  
-  .action-button {
-    background-color: #ffffff;
-    border: 2px solid hsla(341, 96%, 58%, 0.523);
-    color: #fb2dc4;
-    padding: 15px 30px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .action-button:hover {
-    background-color: #fb2dea;
-    color: white;
-  }
-  
-  .social-media {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    color: white;
-  }
-  
-  .social-media i {
+}
+
+@media (max-width: 480px) {
+  .help-title {
     font-size: 24px;
-    cursor: pointer;
-    transition: color 0.3s;
+    margin-bottom: 10px;
   }
   
-  .social-media i:hover {
-    color: #fbc02d;
+  .navbar {
+    flex-direction: column;
+    gap: 5px;
   }
   
+  .nav-button {
+    width: 100%;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
