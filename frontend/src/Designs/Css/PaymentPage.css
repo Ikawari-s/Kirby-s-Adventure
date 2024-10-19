@@ -12,12 +12,13 @@
   font-size: 2rem;
   margin-bottom: 10px;
   font-weight: bold;
+  color: #d74894;
 }
 
 .payment-subtitle {
   font-size: 1rem;
   margin-bottom: 30px;
-  color: #666;
+  color: #d74894;
 }
 
 .payment-form {
@@ -56,11 +57,11 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-}
+} 
 
 .btn-submit {
   padding: 10px 20px;
-  background-color: #6a1b9a;
+  background-color: #df6da9;
   color: white;
   border: none;
   border-radius: 5px;
@@ -68,7 +69,7 @@
 }
 
 .btn-submit:hover {
-  background-color: #4a148c;
+  background-color: #d74894;
 }
 
 .btn-cancel {
@@ -87,6 +88,6 @@
 .disclaimer {
   margin-top: 30px;
   font-size: 0.85rem;
-  color: #555;
+  color: #df6da9;
   line-height: 1.5;
 }

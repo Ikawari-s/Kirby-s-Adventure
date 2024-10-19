@@ -1,18 +1,22 @@
 import React from 'react';
-import '../Designs/Css/OrganizeEvent.css';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import '../Designs/Css/OrganizeEvent.css'; // Ensure the CSS is correctly linked
 
 const OrganizeEvent = () => {
   return (
-    <div className="organize-event-page">
-      <header className="header">
-        <div className="logo">Logo</div>
-      </header>
+    <div>
+      {/* Help Title */}
+      <h1 className="help-title">We’re here to help</h1>
+
+      {/* Navbar with Links */}
       <nav className="navbar">
-        <button className="nav-button">Attending an event</button>
-        <button className="nav-button active">Organizing an event</button>
-        <button className="nav-button">Ticket Order Information</button>
-        <button className="nav-button">Managing Payments</button>
+        <Link className="nav-button" to="/find-events">Attending an event</Link>
+        <Link className="nav-button active" to="/organize-events">Organizing an event</Link>
+        <Link className="nav-button" to="/ticket-order">Ticket Order Information</Link>
+        <Link className="nav-button" to="/payment">Managing Payments</Link>
       </nav>
+
+      {/* Main Content Area */}
       <main className="main-content">
         <div className="action-buttons">
           <div className="action-card">

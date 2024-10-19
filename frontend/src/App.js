@@ -16,30 +16,30 @@ import AboutUs from "./Screens/AboutUs";
 import Contact from "./Screens/Contact";
 import Privacy from "./Screens/Privacy";
 import Terms from "./Screens/Terms";
-
+import TicketOrder from "./Screens/TicketOrder"; // Import the new TicketOrder page
 
 function App() {
   return (
     <Router>
-        <GuestHeader />
-        <main>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/find-events" element={<FindEventsPage />} />
-            <Route path="/create-events" element={<CreateEventsPage />} />
-            <Route path="/payment" element={<PaymentPage />} />
-            <Route path="/help" element={<HelpPage />} />
-            <Route path="/organize-events" element={<OrganizeEvent />} />
-            <Route path="/payment" element={<PaymentPage />} />
-            <Route path="/terms" element={<AboutUs />} />
-            <Route path="/privacy" element={<Terms />} />
-            <Route path="/contact" element={<Privacy />} />
-            <Route path="/about-us" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
+      <GuestHeader />
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/find-events" element={<FindEventsPage />} />
+          <Route path="/create-events" element={<CreateEventsPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/help" element={<HelpPage />} />
+          <Route path="/organize-events" element={<OrganizeEvent />} />
+          <Route path="/ticket-order" element={<TicketOrder />} /> {/* Added Ticket Order route */}
+          <Route path="/terms" element={<Terms />} /> {/* Fixed Terms route */}
+          <Route path="/privacy" element={<Privacy />} /> {/* Fixed Privacy route */}
+          <Route path="/contact" element={<Contact />} /> {/* Fixed Contact route */}
+          <Route path="/about-us" element={<AboutUs />} /> {/* Fixed About Us route */}
+        </Routes>
+      </main>
+      <Footer />
     </Router>
   );
 }
