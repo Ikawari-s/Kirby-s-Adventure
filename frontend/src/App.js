@@ -14,8 +14,6 @@ import OrganizeEvent from "./Screens/OrganizeEvent";
 import LoginPage from "./Screens/LoginPage";
 import AboutUs from "./Screens/AboutUs";
 import Contact from "./Screens/Contact";
-import Privacy from "./Screens/Privacy";
-import Terms from "./Screens/Terms";
 import TicketOrder from "./Screens/TicketOrder"; // Import the new TicketOrder page
 
 function App() {
@@ -33,8 +31,6 @@ function App() {
           <Route path="/help" element={<HelpPage />} />
           <Route path="/organize-events" element={<OrganizeEvent />} />
           <Route path="/ticket-order" element={<TicketOrder />} /> {/* Added Ticket Order route */}
-          <Route path="/terms" element={<Terms />} /> {/* Fixed Terms route */}
-          <Route path="/privacy" element={<Privacy />} /> {/* Fixed Privacy route */}
           <Route path="/contact" element={<Contact />} /> {/* Fixed Contact route */}
           <Route path="/about-us" element={<AboutUs />} /> {/* Fixed About Us route */}
         </Routes>

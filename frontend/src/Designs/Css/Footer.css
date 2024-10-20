@@ -40,7 +40,7 @@
 
 body {
   margin: 0;
-  padding-bottom: 120px; /* Ensure content doesn't overlap with the footer */
+  padding-bottom: 160px; /* Ensure content doesn't overlap with the footer */
   box-sizing: border-box;
 }
 
