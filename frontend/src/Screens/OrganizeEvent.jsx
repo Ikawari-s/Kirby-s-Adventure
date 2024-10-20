@@ -4,7 +4,7 @@ import '../Designs/Css/OrganizeEvent.css'; // Ensure the CSS is correctly linked
 
 const OrganizeEvent = () => {
   return (
-    <div>
+    <div className='potato'>
       {/* Help Title */}
       <h1 className="help-title">We’re here to help</h1>
 

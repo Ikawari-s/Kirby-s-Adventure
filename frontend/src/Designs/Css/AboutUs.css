@@ -3,7 +3,16 @@ body {
     font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Fun, playful font */
 }
 
+.bunny{
+    width: 98.9vw;
+    height: 140vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 .about-container {
+    margin-top: 35vh !important;
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;

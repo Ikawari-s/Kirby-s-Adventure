@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HelpPage = () => {
   return (
-    <div className="container">
+    <div className="kids">
       <div className="help-container">
         <h1 className="help-title">We’re here to help</h1>
         <div className="help-buttons">

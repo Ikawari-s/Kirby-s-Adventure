@@ -68,6 +68,14 @@ function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
+  <div style={{
+    width: '98.9vw',
+    height: '130vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: '30vh'
+  }}>
     <FormContainer>
       {loading ? (
         <Loader />
@@ -244,6 +252,7 @@ function LoginPage() {
         </>
       )}
     </FormContainer>
+  </div>  
   );
 }
 

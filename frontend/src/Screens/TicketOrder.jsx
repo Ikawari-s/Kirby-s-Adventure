@@ -4,7 +4,7 @@ import '../Designs/Css/TicketOrder.css';
 
 const TicketOrder = () => {
   return (
-    <div className="container">
+    <div className="tomato">
       <div className="help-container">
         <h1 className="help-title">We’re here to help</h1> 
         <div className="help-buttons">

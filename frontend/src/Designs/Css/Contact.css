@@ -3,7 +3,16 @@ body {
     font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Playful font */
 }
 
+.cinderella{
+    width: 98.9vw;
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 .contact-container {
+    margin-top: 70vh !important;
     max-width: 800px;
     margin: 50px auto;
     padding: 40px;

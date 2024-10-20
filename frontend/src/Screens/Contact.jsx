@@ -3,6 +3,7 @@ import "../Designs/Css/Contact.css"; // Link your custom CSS file
 
 const Contact = () => {
   return (
+  <div className="cinderella"> 
     <div className="contact-container">
       <h1>Contact Us</h1>
       <p>
@@ -23,6 +24,7 @@ const Contact = () => {
         <button type="submit" className="submit-btn">Send Message</button>
       </form>
     </div>
+  </div>   
   );
 };
 

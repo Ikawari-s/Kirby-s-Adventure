@@ -1,6 +1,15 @@
+.high{
+  width: 98.9vw;
+  height: 240vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .payment-container {
   max-width: 600px; /* Make it smaller */
   margin: 5vh auto; /* Center vertically */
+  margin-top: 80vh;
   padding: 30px; /* Adjusted padding */
   background-color: #f9f9f9;
   border-radius: 10px;

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
+  <div className="bunny"> 
     <div className="about-container">
       <h1>Welcome to Kirbivent!</h1>
       <p>
@@ -30,6 +31,7 @@ const AboutUs = () => {
         Read our Privacy Policy
       </a>
     </div>
+  </div>   
   );
 };
 
