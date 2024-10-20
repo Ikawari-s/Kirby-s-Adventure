@@ -4,6 +4,7 @@ body {
 
 .kids{
   width: 98.9vw;
+  margin-top: 20vh;
   height: 100vh;
   display: flex;
   justify-content: center;

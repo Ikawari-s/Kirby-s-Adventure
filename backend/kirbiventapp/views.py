@@ -17,6 +17,9 @@ from .models import Event
 from .serializers import EventSerializer
 from rest_framework import viewsets
 from django.http import Http404
+import logging
+
+logger = logging.getLogger(__name__)
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
@@ -97,6 +100,7 @@ def get_events(request):
 
 @api_view(['GET'])
 def get_event_by_id(request, event_id):
+    logger.debug(f"Received request for event ID: {event_id}")
     try:
         event = Event.objects.get(pk=event_id)  # Retrieve the event by primary key (id)
     except Event.DoesNotExist:

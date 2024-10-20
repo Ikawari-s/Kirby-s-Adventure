@@ -17,6 +17,7 @@
 }
 
 .footer {
+  position: fixed;
   padding: 40px 0;
   background-color: white;
   color: #ff2b91;
@@ -27,6 +28,7 @@
   justify-content: space-between;
   z-index: 999;
   height: 140px;
+  font-family: Hansken Grotesk, sans-serif; 
 }
 
 .footer-logo {

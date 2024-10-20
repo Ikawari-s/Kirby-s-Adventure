@@ -11,7 +11,7 @@ function FindEventsPage() {
     // Fetch the created events from the backend when the component mounts
     const fetchEvents = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/events/"); // Adjust the endpoint as needed
+        const response = await fetch("http://localhost:8000/api/events/");
         if (!response.ok) {
           throw new Error("Failed to fetch events");
         }

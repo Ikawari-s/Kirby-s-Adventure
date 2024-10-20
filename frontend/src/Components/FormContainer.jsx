@@ -7,7 +7,7 @@ function FormContainer({ children }) {
     <Container maxWidth="xs" sx={{ color: "inherit" }}>
       <Box
         sx={{
-          marginTop: -15,
+          marginTop: -30,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

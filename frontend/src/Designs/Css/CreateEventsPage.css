@@ -76,6 +76,7 @@ h2 {
   color: white;
   cursor: pointer;
   border-radius: 10px;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 .button-group button:hover {
