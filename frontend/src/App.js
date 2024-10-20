@@ -9,14 +9,15 @@ import RegisterPage from "./Screens/RegisterPage";
 import FindEventsPage from "./Screens/FindEventsPage";
 import CreateEventsPage from "./Screens/CreateEventsPage";
 import PaymentPage from "./Screens/PaymentPage";
-import HelpPage from './Screens/HelpPage';
+import HelpPage from "./Screens/HelpPage";
 import OrganizeEvent from "./Screens/OrganizeEvent";
 import LoginPage from "./Screens/LoginPage";
 import AboutUs from "./Screens/AboutUs";
 import Contact from "./Screens/Contact";
 import Privacy from "./Screens/Privacy";
 import Terms from "./Screens/Terms";
-import TicketOrder from "./Screens/TicketOrder"; // Import the new TicketOrder page
+import TicketOrder from "./Screens/TicketOrder";
+import EventPage from "./Screens/EventPage";
 
 function App() {
   return (
@@ -32,11 +33,12 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/help" element={<HelpPage />} />
           <Route path="/organize-events" element={<OrganizeEvent />} />
-          <Route path="/ticket-order" element={<TicketOrder />} /> {/* Added Ticket Order route */}
-          <Route path="/terms" element={<Terms />} /> {/* Fixed Terms route */}
-          <Route path="/privacy" element={<Privacy />} /> {/* Fixed Privacy route */}
-          <Route path="/contact" element={<Contact />} /> {/* Fixed Contact route */}
-          <Route path="/about-us" element={<AboutUs />} /> {/* Fixed About Us route */}
+          <Route path="/ticket-order" element={<TicketOrder />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/event/:id" element={<EventPage />} />
         </Routes>
       </main>
       <Footer />

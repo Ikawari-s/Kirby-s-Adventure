@@ -35,15 +35,21 @@ function CreateEventsPage() {
     setEvent({ ...event, [e.target.name]: e.target.value });
   };
 
-  // Function to handle API call to Django backend
   const handleCreate = async () => {
+    // Convert local date to UTC
+    const eventWithUTC = {
+      ...event,
+      startDate: new Date(event.startDate).toISOString(), // Convert startDate to UTC
+      endDate: new Date(event.endDate).toISOString(), // Convert endDate to UTC
+    };
+
     try {
       const response = await fetch("http://localhost:8000/api/create/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(event),
+        body: JSON.stringify(eventWithUTC), // Send event with UTC dates
       });
 
       if (response.ok) {

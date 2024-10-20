@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import GuestHeader from "../Components/GuestHeader";
 import "../Designs/Css/FindEventsPage.css";
 
 function FindEventsPage() {
   const [events, setEvents] = useState([]); // State to hold events
+  const navigate = useNavigate(); // Initialize useNavigate for redirecting to event page
 
   useEffect(() => {
     // Fetch the created events from the backend when the component mounts
@@ -23,9 +25,27 @@ function FindEventsPage() {
     fetchEvents(); // Call the fetch function
   }, []);
 
+  const formatDateTime = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+      timeZone: "Asia/Manila",
+    };
+    const date = new Date(dateString); // Ensure this date is in UTC format
+    return date.toLocaleString("en-US", options);
+  };
+
+  const handleEventClick = (id) => {
+    navigate(`/event/${id}`); // Redirect to the EventPage with the event id
+  };
+
   return (
     <>
-      <div className="row" style={{ zIndex: 1000, marginTop: "-35vh" }}>
+      <div className="row" style={{ zIndex: 1000, marginTop: "-25vh" }}>
         <div className="small-12 columns">
           <h2 className="widget-title">
             <strong>Upcoming Events</strong>
@@ -34,12 +54,20 @@ function FindEventsPage() {
 
           <ul className="event-list">
             {events.map((event, index) => (
-              <li className="event" key={index}>
+              <li
+                className="event"
+                key={index}
+                onClick={() => handleEventClick(event.id)} // Trigger the click handler
+              >
                 <div className="date">
                   <time>
-                    <span className="start-duration">{event.startDate}</span>
+                    <span className="start-duration">
+                      {formatDateTime(event.startDate)}
+                    </span>
                     <span className="to-duration"> - to - </span>
-                    <span className="end-duration">{event.endDate}</span>
+                    <span className="end-duration">
+                      {formatDateTime(event.endDate)}
+                    </span>
                     <br />
                     <span className="location">{event.location}</span>
                   </time>

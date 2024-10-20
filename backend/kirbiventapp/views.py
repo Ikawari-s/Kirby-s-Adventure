@@ -16,6 +16,7 @@ from django.apps import apps
 from .models import Event
 from .serializers import EventSerializer
 from rest_framework import viewsets
+from django.http import Http404
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
@@ -92,4 +93,13 @@ def create_event(request):
 def get_events(request):
     events = Event.objects.all()  
     serializer = EventSerializer(events, many=True)  
-    return Response(serializer.data)  
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_event_by_id(request, event_id):
+    try:
+        event = Event.objects.get(pk=event_id)  # Retrieve the event by primary key (id)
+    except Event.DoesNotExist:
+        raise Http404("Event not found")  # Return a 404 if the event doesn't exist
+    serializer = EventSerializer(event)  # Serialize the event
+    return Response(serializer.data)  # Return the serialized data

@@ -9,7 +9,7 @@ function Loader() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: "10rem",
+          marginTop: "-5rem",
         }}
       >
         <CircularProgress
@@ -19,13 +19,14 @@ function Loader() {
             height: "100px",
             margin: "auto",
             display: "block",
+            color: "#e65a61",
           }}
         />
       </Box>
       <Typography
         variant="h4"
         align="center"
-        sx={{ color: "inherit", marginTop: "1rem" }}
+        sx={{ color: "#e65a61", marginTop: "1rem" }}
         gutterBottom
       >Please Wait.</Typography>
     </>
