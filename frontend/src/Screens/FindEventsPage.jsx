@@ -25,8 +25,8 @@ function FindEventsPage() {
 
   return (
     <>
-      <div className="row" style={{ zIndex: 1000, marginTop: "-35vh" }}>
-        <div className="small-12 columns">
+      <div className="rap">
+        <div className="amazing">
           <h2 className="widget-title">
             <strong>Upcoming Events</strong>
           </h2>

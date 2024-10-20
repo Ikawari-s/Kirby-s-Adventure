@@ -10,11 +10,18 @@ body {
   margin: 0;
 }
 
-.container {
-  text-align: center;
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
+.rap{
+  /* background-color: blue; */
+  width: 98.9vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amazing {
+  /* background-color: red; */
+  margin-top: 4rem;
 }
 
 .widget-title {
