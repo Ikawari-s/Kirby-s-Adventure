@@ -4,14 +4,14 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   color: #232323;
   z-index: 1000;
-  margin-top: -2rem; /* Maintain original negative margin */
+  margin-top: -2vh;
   top: 0;
   left: 0;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 120px;
+  
 }
 
 .navbut {
