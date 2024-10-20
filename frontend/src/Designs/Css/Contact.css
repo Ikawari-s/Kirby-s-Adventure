@@ -1,0 +1,104 @@
+body {
+    background-color: #ffccff; /* Light pink Kirby background */
+    font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Playful font */
+}
+
+.cinderella{
+    width: 98.9vw;
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.contact-container {
+    margin-top: 70vh !important;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffe4f0; /* Kirby-like pink */
+    color: #4d004d; /* Darker purple for text */
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Add some depth */
+    border: 3px solid #ff66b2; /* Accent pink border */
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-container::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background-color: #ff99cc;
+    border-radius: 50%;
+    opacity: 0.5; /* Bubble effect */
+}
+
+.contact-container::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 100px;
+    height: 100px;
+    background-color: #ff99cc;
+    border-radius: 50%;
+    opacity: 0.5; /* Another playful bubble */
+}
+
+.contact-container h1 {
+    font-size: 3em;
+    text-align: center;
+    color: #ff4da6; /* Darker pink for heading */
+    margin-bottom: 20px;
+}
+
+.contact-container p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form label {
+    font-size: 1.2em;
+    color: #4d004d; /* Dark purple text */
+}
+
+.contact-form input, 
+.contact-form textarea {
+    padding: 15px;
+    border: 2px solid #ff66b2;
+    border-radius: 15px;
+    font-size: 1em;
+    background-color: #fff0f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    color: #4d004d;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: #ff4da6; /* Focused pink border */
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More shadow on focus */
+}
+
+.submit-btn {
+    background-color: #ff66b2;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease;
+}

@@ -1,0 +1,81 @@
+body {
+    background-color: #ffccff; /* Light pink background for Kirby vibe */
+    font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Fun, playful font */
+}
+
+.bunny{
+    width: 98.9vw;
+    height: 140vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.about-container {
+    margin-top: 35vh !important;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffe4f0; /* Kirby-pink background */
+    color: #333;
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Bolder shadow for a pop-out effect */
+    border: 3px solid #ff66b2; /* Accent pink border */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.about-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background-color: #ff99cc;
+    border-radius: 50%;
+    opacity: 0.5; /* Soft floating bubble for Kirby's aesthetic */
+}
+
+.about-container::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 100px;
+    height: 100px;
+    background-color: #ff99cc;
+    border-radius: 50%;
+    opacity: 0.5; /* Another playful bubble */
+}
+
+.about-container h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ff4da6; /* Darker pink for heading */
+    text-align: center;
+}
+
+.about-container p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #4d004d; /* Dark purple for readable text */
+}
+
+.privacy-a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #ff66b2; /* Bright pink button */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px; /* Rounded pill button */
+    font-size: 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease;
+}
+
+.privacy-a:hover {
+    background-color: #ff99cc; /* Lighter pink on hover */
+}

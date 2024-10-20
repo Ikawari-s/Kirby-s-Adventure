@@ -104,6 +104,7 @@ const PaymentPage = () => {
   };
 
   return (
+  <div className="high">
     <div className="payment-container">
       <h1 className="payment-title">Add a payment method</h1>
       <p className="payment-subtitle">
@@ -234,6 +235,7 @@ const PaymentPage = () => {
         </PayPalScriptProvider>
       </div>
     </div>
+  </div>  
   );
 };
 

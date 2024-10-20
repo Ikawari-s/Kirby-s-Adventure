@@ -90,14 +90,7 @@ function CreateEventsPage() {
 
   return (
     <>
-      <div
-        className="container"
-        style={{
-          marginTop: "-10vh",
-          width: "fit-content",
-          marginBottom: "0vh",
-        }}
-      >
+      <div className="twat">
         <div className="event-form">
           <h2 className="dancing-font">
             <strong>Create an Event</strong>

@@ -1,53 +1,64 @@
-.kirb-bg {
-  background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/15415.png);
-  background-repeat: no-repeat;
-  background-size: fill cover;
-  background-position: center;
-  height: 100vh;
-}
+  .kirb-bg {
+    background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/15415.png);
+    background-repeat: no-repeat;
+    background-size: fill cover;
+    background-position: center;
+    height: 100vh;
+  }
 
-.wow {
-  padding-top: 40vh;
-}
+  .wat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 260px); 
+    padding-top: 20px; 
+    padding-bottom: 20px;
+    width: 98.9vw;
+  }
 
-body{
-  background-color: #f8b3b6 !important;
-}
+  .wow {
+    text-align: center;
+    padding-top: 40vh;
+  }
 
-.kirb-bg h1{
-  color: white;
-  font-size: 4rem;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-}
+  body{
+    background-color: #f8b3b6 !important;
+  }
 
-.kirb-bg h3{
-  color: white;
-  margin-top: 1rem;
-}
+  .kirb-bg h1{
+    color: white;
+    font-size: 4rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  }
 
-.kirb-bg button {
-  margin-top: 4rem;
-  background-color: #ff2b91;
-  border: none;
-  color: white;
-  padding: .7rem 3rem;
-  font-size: small;
-  font-weight: 600;
-  transition: ease-in-out 0.2s;
-}
+  .kirb-bg h3{
+    color: white;
+    margin-top: 1rem;
+  }
 
-.kirb-bg button:hover{
-  transform: scale(1.02);
-  --webkit-box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.75);
-  box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.75);
-  
-}
+  .kirb-bg button {
+    margin-top: 4rem;
+    background-color: #ff2b91;
+    border: none;
+    color: white;
+    padding: .7rem 3rem;
+    font-size: small;
+    font-weight: 600;
+    transition: ease-in-out 0.2s;
+  }
 
-.kirb-bg button:active{
-  transform: scale(1);
-  -webkit-box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.70);
--moz-box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.70);
-box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.75);
+  .kirb-bg button:hover{
+    transform: scale(1.02);
+    --webkit-box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.75);
+    
+  }
 
-}
+  .kirb-bg button:active{
+    transform: scale(1);
+    -webkit-box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.70);
+  -moz-box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.70);
+  box-shadow: 0px 0px 0px -0px rgba(0,0,0,0.75);
+
+  }

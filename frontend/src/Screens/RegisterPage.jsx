@@ -76,6 +76,14 @@ function RegisterPage() {
   };
 
   return (
+    <div style={{
+      width: '98.9vw',
+      height: '147vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingTop: '47vh'
+    }}>
     <FormContainer>
       {loading ? (
         <Loader />
@@ -357,6 +365,7 @@ function RegisterPage() {
         </>
       )}
     </FormContainer>
+    </div>
   );
 }
 
