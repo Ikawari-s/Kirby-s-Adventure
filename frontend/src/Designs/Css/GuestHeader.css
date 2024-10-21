@@ -4,15 +4,27 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
   color: #232323;
   z-index: 1000;
-  margin-top: -2vh;
+  margin-top: -2vh; 
   top: 0;
   left: 0;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: Hansken Grotesk, sans-serif; 
+  
 }
+
+.da-user{
+  width: 80%;
+  max-width: 11rem;
+  height: 4vh !important;
+  text-align: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1.3rem;
+  transition: transform 0.2s ease-in-out;
+}
+
 
 .navbut {
   margin-top: 1rem;

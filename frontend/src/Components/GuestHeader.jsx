@@ -90,7 +90,7 @@ const GuestHeader = () => {
                 Help
               </Nav.Link>
               {/* Profile Dropdown */}
-              <div style={{ position: "relative" }}>
+              <div className="da-user">
                 {userInfo ? (
                   <NavDropdown
                     title={<span className="custom-link">{userInfo.name}</span>}
@@ -105,7 +105,7 @@ const GuestHeader = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 ) : (
-                  <LinkContainer to={"/login"} className="rah">
+                  <LinkContainer to={"/login"}>
                     <Nav.Link>Login</Nav.Link>
                   </LinkContainer>
                 )}

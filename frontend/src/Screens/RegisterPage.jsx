@@ -79,11 +79,11 @@ function RegisterPage() {
     <div
       style={{
         width: "98.9vw",
-        height: "147vh",
+        height: "187vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: "47vh",
+        paddingTop: "97vh",
       }}
     >
       <FormContainer>

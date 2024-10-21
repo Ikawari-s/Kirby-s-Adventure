@@ -1,7 +1,17 @@
 .tomato{
   width: 98.9vw;
-  height: 110vh;
-  padding-top: 44vh;
+  height: 90vh;
+}
+
+
+
+.lol-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #df6da9;
+  margin-top: 70vh;
 }
   
   .help-title {
@@ -16,6 +26,7 @@
   .ticket-order-container {
     padding: 20px;
     font-family: Arial, sans-serif;
+    margin-top: 2rem !important;
   }
   
   .ticket-details, .event-details, .venue-details {

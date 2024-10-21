@@ -1,5 +1,15 @@
 /* Event page container */
+.john {
+  width: 98.9vw;
+  height: 120vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .event-page-container {
+  font-family: 'Hansken Grotesk', sans-serif;
+  margin-top: 40vh !important;
   display: flex;
   justify-content: center;
   align-items: center;

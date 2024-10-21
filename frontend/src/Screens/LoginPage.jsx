@@ -71,11 +71,11 @@ function LoginPage() {
     <div
       style={{
         width: "98.9vw",
-        height: "130vh",
+        height: "150vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: "30vh",
+        paddingTop: "80vh",
       }}
     >
       <FormContainer>

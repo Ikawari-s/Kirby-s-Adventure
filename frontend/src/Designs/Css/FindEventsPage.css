@@ -11,9 +11,9 @@ body {
 }
 
 .rap {
-  /* background-color: blue; */
+  margin-top: 40vh;
   width: 98.9vw;
-  height: 100vh;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,8 @@ body {
 
 .amazing {
   /* background-color: red; */
-  margin-top: 4rem;
+  margin-top: 90vh;
+  margin-bottom: 10vh;
 }
 
 .widget-title {

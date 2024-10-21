@@ -33,6 +33,7 @@ function EventPage() {
   }
 
   return (
+  <div className="john"> 
     <div className="event-page-container">
       <h1 className="event-title">{event.title}</h1>
       <p className="event-description">{event.description}</p>
@@ -50,6 +51,7 @@ function EventPage() {
         </p>
       </div>
     </div>
+  </div>   
   );
 }
 
