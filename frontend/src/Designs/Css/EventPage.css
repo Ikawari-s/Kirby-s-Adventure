@@ -1,45 +1,176 @@
 /* Event page container */
 .john {
   width: 98.9vw;
-  height: 120vh;
+  height: 180vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Ticket style for the event page */
 .event-page-container {
-  font-family: 'Hansken Grotesk', sans-serif;
-  margin-top: 40vh !important;
+  font-family: "Comic Sans MS", sans-serif;
+  margin-top: 65vh; /* Adjust top margin */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  margin: 0 auto;
-  max-width: 800px; /* Limit the page width to a readable size */
-  background-color: #f9f9f9; /* Light background for contrast */
-  border-radius: 8px; /* Rounded corners for a neat look */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin-bottom: 50px; /* Make sure there is space before the footer */
+  padding: 20px 20px;
+  width: 90%;
+  max-width: 400px;
+  background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+  border-radius: 30px; /* More rounded border */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 5px dashed #ff1493; /* Make the border a bit thicker */
+  position: relative;
+  animation: bounce 2s infinite; /* Add bounce animation to the container */
+}
+
+/* Bounce animation for the ticket container */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Title */
 .event-title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 50px;
+  color: #fff;
   text-align: center;
+  z-index: 2;
+  animation: wiggle 3s infinite ease-in-out; /* Wiggle effect for title */
+}
+
+/* Wiggle animation for the title */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
 }
 
 /* Description */
 .event-description {
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.3rem;
+  color: #fff;
   margin-bottom: 20px;
-  text-align: justify;
+  text-align: center;
 }
 
 /* Event details section */
 .event-details p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 8px 0;
+  color: #fff;
+  text-align: center;
+}
+
+/* Adjust Ticket graphic position */
+.event-page-container::before {
+  content: "🎟️";
+  font-size: 4rem;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Fix footer element and add ticket feel */
+.event-page-container::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background-color: #ff69b4;
+  border-radius: 0 0 20px 20px;
+  z-index: 0;
+}
+
+/* Button container */
+.order-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Main button style with bubble effect */
+.order-button button {
+  background: linear-gradient(to right, #ffb6c1, #ff69b4);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  max-width: 250px;
+  animation: bubble 3s infinite ease-in-out; /* Bubble effect */
+}
+
+/* Bubble effect animation for the button */
+@keyframes bubble {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Button hover effect */
+.order-button button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to right, #ff69b4, #ff1493);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Link style inside button */
+.order-button .rah {
+  color: white;
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  z-index: 2;
+}
+
+/* Inner hover animation */
+.order-button button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease;
+  border-radius: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.order-button button:hover::before {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
 }

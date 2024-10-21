@@ -5,14 +5,14 @@ body {
 
 .cinderella{
     width: 98.9vw;
-    height: 200vh;
+    height: 240vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
 .contact-container {
-    margin-top: 70vh !important;
+    margin-top:110vh !important;
     max-width: 800px;
     margin: 50px auto;
     padding: 40px;

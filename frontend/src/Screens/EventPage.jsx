@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Loader from "../Components/Loader";
 import "../Designs/Css/EventPage.css";
 
@@ -33,25 +33,32 @@ function EventPage() {
   }
 
   return (
-  <div className="john"> 
-    <div className="event-page-container">
-      <h1 className="event-title">{event.title}</h1>
-      <p className="event-description">{event.description}</p>
-      <div className="event-details">
-        <p>
-          <strong>Start:</strong>{" "}
-          {new Date(event.startDate).toLocaleString("en-US")}
-        </p>
-        <p>
-          <strong>End:</strong>{" "}
-          {new Date(event.endDate).toLocaleString("en-US")}
-        </p>
-        <p>
-          <strong>Location:</strong> {event.location}
-        </p>
+    <div className="john">
+      <div className="event-page-container">
+        <h1 className="event-title">{event.title}</h1>
+        <p className="event-description">{event.description}</p>
+        <div className="event-details">
+          <p>
+            <strong>Start:</strong>{" "}
+            {new Date(event.startDate).toLocaleString("en-US")}
+          </p>
+          <p>
+            <strong>End:</strong>{" "}
+            {new Date(event.endDate).toLocaleString("en-US")}
+          </p>
+          <p>
+            <strong>Location:</strong> {event.location}
+          </p>
+        </div>
+        <div className="order-button">
+          <button>
+            <Link className="rah" as={Link} to="/payment">
+              Order!!!
+            </Link>
+          </button>
+        </div>
       </div>
     </div>
-  </div>   
   );
 }
 
